@@ -21,5 +21,7 @@ urlpatterns = [
 	url(r'^password-reset/confirm/(?P<uidb64>[-\w]+)/(?P<token>[-\w]+)/$',
 	    'django.contrib.auth.views.password_reset_confirm', name='password_reset_confirm'),
 	url(r'^password-reset/complete/$', 'django.contrib.auth.views.password_reset_complete', name='password_reset_complete'),
+	# user registration
+	url(r'^registration/$', views.registration, name='registration'),
 ]
 
