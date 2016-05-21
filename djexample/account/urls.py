@@ -23,5 +23,6 @@ urlpatterns = [
 	url(r'^password-reset/complete/$', 'django.contrib.auth.views.password_reset_complete', name='password_reset_complete'),
 	# user registration
 	url(r'^registration/$', views.registration, name='registration'),
+	# user edit profile
+	url(r'^edit/$', views.edit, name='edit')
 ]
-
