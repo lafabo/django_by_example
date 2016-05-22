@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'account',
+    'social.apps.django_app.default',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -125,3 +126,16 @@ LOGOUT_URL = reverse_lazy('logout')
 # MEDIA
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+
+# Authentication_backedns
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'account.authentication.EmailAuthBackend',
+    'social.backends.facebook.Facebook2OAuth2',
+)
+
+# FACEBOOK AUTH SETTING
+SOCIAL_AUTH_FACEBOOK_KEY = 'XXX'    # FB APP ID
+SOCIAL_AUTH_FACEBOOK_SECRET = 'XXX' # FB APP SECRET
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']

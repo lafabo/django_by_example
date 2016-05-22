@@ -24,5 +24,6 @@ urlpatterns = [
 	# user registration
 	url(r'^registration/$', views.registration, name='registration'),
 	# user edit profile
-	url(r'^edit/$', views.edit, name='edit')
+	url(r'^edit/$', views.edit, name='edit'),
+	url('social-auth/', include('social.apps.django_app.urls', namespace='social')),
 ]
