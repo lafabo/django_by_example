@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
     'account',
     'social.apps.django_app.default',
+    'images',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -129,13 +130,24 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
 # Authentication_backedns
+
 AUTHENTICATION_BACKENDS = (
+    'social.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
-    'social.backends.facebook.Facebook2OAuth2',
+    'social.backends.twitter.TwitterOAuth',
 )
 
-# FACEBOOK AUTH SETTING
+
+# FACEBOOK LOGIN SETTING
 SOCIAL_AUTH_FACEBOOK_KEY = 'XXX'    # FB APP ID
 SOCIAL_AUTH_FACEBOOK_SECRET = 'XXX' # FB APP SECRET
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+# TWITTER LOGIN SETTING
+SOCIAL_AUTH_TWITTER_KEY = 'XXX' # Twitter Consumer Key
+SOCIAL_AUTH_TWITTER_SECRET = 'XXX' # Twitter Consumer Secret
+
+# GOOGLE LOGIN SETTING
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '' # Google Consumer Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '' # Google Consumer Secret
