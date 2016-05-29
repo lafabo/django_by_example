@@ -20,11 +20,11 @@ def image_create(request):
 			cd = form.cleaned_data
 			new_item = form.save(commit=False)
 			# assign user to item
-		new_item.user = request.user
-		new_item.save()
-		messages.success(request, 'Image saved')
-		# redirect to new created item
-		return redirect(new_item.get_absolute_url())
+			new_item.user = request.user
+			new_item.save()
+			messages.success(request, 'Image saved')
+			# redirect to new created item
+			return redirect(new_item.get_absolute_url())
 	else:
 		# build form with data from bookmarklet via GET
 		form = ImageCreateForm(data=request.GET)
@@ -62,7 +62,7 @@ def image_list(request):
 	paginator = Paginator(images, 8)
 	page = request.GET.get('page')
 	try:
-		images = paginator.page(1)
+		images = paginator.page(page)
 	except PageNotAnInteger:
 		images = paginator.page(1)
 	except EmptyPage:

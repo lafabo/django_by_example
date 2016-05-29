@@ -14,7 +14,6 @@ class Image(models.Model):
 	description = models.TextField(blank=True)
 	created = models.DateField(auto_now_add=True, db_index=True)
 	users_like = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='images_liked', blank=True)
-	number = models.Fie
 
 	def __str__(self):
 		return self.title
@@ -25,4 +24,4 @@ class Image(models.Model):
 			super(Image, self).save(*args, **kwargs)
 
 	def get_absolute_url(self):
-		return reverse('image:detail', args=[self.id, self.slug])
+		return reverse('images:detail', args=[self.id, self.slug])
