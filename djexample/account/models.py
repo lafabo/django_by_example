@@ -13,15 +13,15 @@ class Profile(models.Model):
 		return 'Profile for user %s' % self.user.username
 
 
-class Contract(models.Model):
+class Contact(models.Model):
 	user_form = models.ForeignKey(User, related_name='rel_from_set')
 	user_to = models.ForeignKey(User, related_name='rel_to_set')
 	created = models.DateTimeField(auto_now_add=True, db_index=True)
 
 	class Meta:
-		ordering = ('-created')
+		ordering = ['-created']
 
 	def __str__(self):
 		return '{} follows {}'.format(self.user_form, self.user_to)
 
-User.add_to_class('following', models.ManyToManyField('self', through=Contract, related_name='followers', symmetrical=False))
+following = models.ManyToManyField('self', through=Contact, related_name='followers', symmetrical=False)

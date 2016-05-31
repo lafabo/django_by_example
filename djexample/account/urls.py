@@ -25,8 +25,10 @@ urlpatterns = [
 	# user edit profile
 	url(r'^edit/$', views.edit, name='edit'),
 	url(r'social-auth/', include('social.apps.django_app.urls', namespace='social')),
+	# following
+	url(r'^users/follow/$', views.user_follow, name='user_follow'),
 	# user list
-	url(r'users/$', views.user_list, name='user_list'),
+	url(r'^users/$', views.user_list, name='user_list'),
 	# user details page
-	url(r'users/(?P<username>[-\w]+)/$', views.user_detail, name='user_detail'),
+	url(r'^users/(?P<username>[-\w]+)/$', views.user_detail, name='user_detail'),
 ]
